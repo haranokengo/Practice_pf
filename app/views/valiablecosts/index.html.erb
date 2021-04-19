@@ -1,0 +1,30 @@
+<h2>変動費科目一覧</h2>
+
+<%= link_to "変動費科目の新規登録", new_valiablecost_path %>
+
+<% if @valiablecosts.present? %>
+<table>
+	<thead>
+		<tr>
+			<th>科目名</th>
+			<th>備考</th>
+			<th>操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @valiablecosts.each do |valiablecost| %>
+			<tr>
+				<td><%= valiablecost.name %></td>
+				<td><%= valiablecost.description %></td>
+				<td>
+				<%= link_to "編集", edit_valiablecost_path(valiablecost.id) %>
+				<%= link_to "削除", valiablecost_path(valiablecost.id), method: :delete, data: { confirm: "本当に削除しますか？"} %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<% else %>
+	<p>登録されている変動費科目がありません。</p>
+<% end %>

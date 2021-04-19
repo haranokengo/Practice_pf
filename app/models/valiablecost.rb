@@ -1,0 +1,2 @@
+class Valiablecost < ApplicationRecord
+end

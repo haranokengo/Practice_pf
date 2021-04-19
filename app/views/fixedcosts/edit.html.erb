@@ -1,0 +1,5 @@
+<h2>固定費科目変更</h2>
+<%= form_with model: @fixedcost, local:true do |f| %>
+	<%= render "form", f: f %>
+	<div><%= f.submit %></div>
+<% end %>
