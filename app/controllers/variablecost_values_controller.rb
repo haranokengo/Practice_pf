@@ -1,8 +1,8 @@
 class VariablecostValuesController < ApplicationController
   def index
-		@variablecosts = Variablecost.order(created_at: :asc)
+  	@variablecosts = Variablecost.all
 		@variablecost_values = VariablecostValue.order("year_month asc")
-	end
+  end
  
 	def show
 		@variablecost_value = VariablecostValue.find(params[:id])
