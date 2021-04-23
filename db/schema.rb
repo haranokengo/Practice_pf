@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_21_134444) do
+ActiveRecord::Schema.define(version: 2021_04_23_140853) do
 
   create_table "fixedcost_values", force: :cascade do |t|
     t.integer "fixedcost_id", null: false
-    t.date "year_month"
     t.integer "value"
     t.string "description"
+    t.date "year_month"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 2021_04_21_134444) do
 
   create_table "income_values", force: :cascade do |t|
     t.integer "income_id", null: false
-    t.date "year_month"
     t.integer "value"
     t.string "description"
+    t.date "year_month"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,9 +53,9 @@ ActiveRecord::Schema.define(version: 2021_04_21_134444) do
 
   create_table "variablecost_values", force: :cascade do |t|
     t.integer "variablecost_id", null: false
-    t.date "year_month"
     t.integer "value"
     t.string "description"
+    t.date "year_month"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
