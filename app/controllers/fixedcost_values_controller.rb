@@ -9,8 +9,8 @@ class FixedcostValuesController < ApplicationController
 	end
 
 	def new
-		@fixedcost_value = FixedcostValue.new
-		@fixedcost = Fixedcost.new
+		@form = Form::FixedcostValueCollection.new
+		@fixedcosts = Fixedcost.all
 	end
 
 	def edit
@@ -19,33 +19,17 @@ class FixedcostValuesController < ApplicationController
 	end
 
 	def create
-		@form = Form::FixedcostForm.new(fixedcost_form_params)
-		if @form.save
-			redirect_to :fixedcost_values, notice: "登録しました"
-		else
-			redirect_to :fixedcost_values, notice: "登録に失敗しました"
-		end
+		@form = Form::FixedcostValueCollection.new(fixedcost_value_collection_params)
+    if @form.save
+      redirect_to root_path, notice: "商品を登録しました"
+    else
+      flash.now[:alert] = "商品登録に失敗しました"
+      render :new
+    end
 	end
-
-	def fixedcost_form_params
-		params
-			.require(:form_fixedcost_form)
-			.permit(fixedcost_values_attributes: Form::FixedcostValue::REGISTRABLE_ATTRIBUTES)
-	end
-
-	def update
-		@fixedcost_value = FixedcostValue.find(params[:id])
-		@fixedcost_value.assign_attributes(params[:fixedcost_value])
-		if @fixedcost_value.save
-			redirect_to :fixedcost_values, notice: "情報を更新しました"
-		else
-			render "edit"
-		end
-	end
-
-	def destroy
-		@fixedcost_value = FixedcostValue.find(params[:id])
-		@fixedcost_value.destroy
-		redirect_to :fixedcost_values, notice: "データを削除しました。"
-	end
+  private
+  def fixedcost_value_collection_params
+      params.require(:form_fixedcost_value_collection)
+      .permit(fixedcost_values_attributes: [:name, :value, :year_month, :description, :fixedcost_id])
+  end
 end

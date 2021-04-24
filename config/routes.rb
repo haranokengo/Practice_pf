@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :valiablecosts
   resources :income_values
   resources :fixedcost_values
-  resources :variablecost_values
+  resources :valiablecost_values
 end

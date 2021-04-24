@@ -1,4 +1,4 @@
-<h1>収入登録</h1>
+<h1>変動費登録</h1>
 <table>
   <tr>
     <th>日付</th>
@@ -6,13 +6,15 @@
     <th>金額</th>
     <th>詳細</th>
   </tr>
-  <%= form_with model: @valiablecost_value, local:true do |f| %>
-    <tr>
-      <td><%= f.date_field :year_month %></td>
-      <td><%= f.collection_select :income_id, @valiablecost, :id, :name, include_blank: "選択して下さい" %></td>
-      <td><%= f.text_field :value %>円</td>
-      <td><%= f.text_field :description %></td>
-      <td><%= f.submit %></td>
-    </tr>
+  <%= form_with model: @form, url: valiablecost_values_path, local:true do |form| %>
+    <%= form.fields_for :valiablecost_values do |f| %>
+      <tr>
+        <td><%= f.date_field :year_month %></td>
+        <td><%= f.collection_select :valiable_id, @valiablecosts, :id, :name, include_blank: "選択して下さい" %></td>
+        <td><%= f.text_field :value %>円</td>
+        <td><%= f.text_field :description %></td>
+      </tr>
+    <% end %>
+    <%= form.submit %>
   <% end %>
 </table>
