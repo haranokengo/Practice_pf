@@ -44,18 +44,18 @@ ActiveRecord::Schema.define(version: 2021_04_23_140853) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "valiablecosts", force: :cascade do |t|
-    t.string "name", null: false
+  create_table "valiablecost_values", force: :cascade do |t|
+    t.integer "valiablecost_id", null: false
+    t.integer "value"
     t.string "description"
+    t.date "year_month"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "variablecost_values", force: :cascade do |t|
-    t.integer "variablecost_id", null: false
-    t.integer "value"
+  create_table "valiablecosts", force: :cascade do |t|
+    t.string "name", null: false
     t.string "description"
-    t.date "year_month"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

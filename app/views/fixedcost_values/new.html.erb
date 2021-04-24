@@ -1,11 +1,18 @@
-<% @page_title = "固定費科目 データ登録" %>
-<h2><%= @page_title %></h2>
-<div class="toolbar"><%= link_to "固定費科目データ一覧に戻る", :fixedcost_values %></div>
-<% form_with model: @form, local:true do |f| %>
-    <td><%= f.text_field :value %>円</td>
-    <td><%= f.text_field :description %></td>
- </tr>
+<h1>収入登録</h1>
+<table>
+  <tr>
+    <th>日付</th>
+    <th>収入科目</th>
+    <th>金額</th>
+    <th>詳細</th>
+  </tr>
+  <%= form_with model: @fixedcost_value, local:true do |f| %>
+    <tr>
+      <td><%= f.date_field :year_month %></td>
+      <td><%= f.collection_select :income_id, @fixedcost, :id, :name, include_blank: "選択して下さい" %></td>
+      <td><%= f.text_field :value %>円</td>
+      <td><%= f.text_field :description %></td>
+      <td><%= f.submit %></td>
+    </tr>
+  <% end %>
 </table>
-
-<div><%= f.submit %></div>
-<% end %>

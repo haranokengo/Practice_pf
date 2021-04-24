@@ -9,12 +9,8 @@ class FixedcostValuesController < ApplicationController
 	end
 
 	def new
-		year_month_day = params[:year_month] + "-01"
-		@year_month = year_month_day.to_date
-
-		@fixedcosts = Fixedcost.order(created_at: :asc)
-		@form = Form::FixedcostForm.new
 		@fixedcost_value = FixedcostValue.new
+		@fixedcost = Fixedcost.new
 	end
 
 	def edit

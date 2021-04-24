@@ -9,11 +9,8 @@ class VariablecostValuesController < ApplicationController
 	end
  
 	def new
-		year_month_day = params[:year_month] + "-01"
-		@year_month = year_month_day.to_date
- 
-		@variablecosts = Variablecost.order(created_at: :asc)
-		@form = Form::VariablecostForm.new
+		@valiablecost_value = ValiablecostValue.new
+		@valiablecost = Valiablecost.new
 	end
  
 	def edit

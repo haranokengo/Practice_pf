@@ -1,39 +1,18 @@
-<% @page_title = "変動費科目 データ登録" %>
-<h2><%= @page_title %></h2>
-<div class="toolbar"><%= link_to "変動費科目データ一覧に戻る", :variablecost_values %></div>
-<%= form_for(@form, url: variablecost_values_path, method: :post) do |fb| %>
- 
-<!-- 年月テーブル -->
+<h1>収入登録</h1>
 <table>
   <tr>
-    <th>登録年月</th>
-    <th>名称</th>
-    <th>値</th>
-    <th>備考</th>
+    <th>日付</th>
+    <th>収入科目</th>
+    <th>金額</th>
+    <th>詳細</th>
   </tr>
- 
-  <% cnt=0 %>
-  <%= fb.fields_for :variablecost_values do |f| %>
-  <%= f.hidden_field :variablecost_id %>
- 
- <tr>
-		<td>
-      <%= f.date_select :year_month,
-						start_year: 2010, end_year: Time.current.year,
-						use_month_numbers: true, discard_day: true, default: @year_month
-            %>
-    </td>
- 
-   <th>
-    <%= @variablecosts.find(@form.variablecost_values[cnt].variablecost_id).name %>
-    </th>
-    <% cnt+=1 %>
-    <td><%= f.text_field :value, size: 8 %></td>
-    <td><%= f.text_field :description, size: 8 %></td>
- 
- </tr>
-<% end %>
+  <%= form_with model: @valiablecost_value, local:true do |f| %>
+    <tr>
+      <td><%= f.date_field :year_month %></td>
+      <td><%= f.collection_select :income_id, @valiablecost, :id, :name, include_blank: "選択して下さい" %></td>
+      <td><%= f.text_field :value %>円</td>
+      <td><%= f.text_field :description %></td>
+      <td><%= f.submit %></td>
+    </tr>
+  <% end %>
 </table>
- 
-<div><%= fb.submit %></div>
-<% end %>
