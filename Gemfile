@@ -60,5 +60,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# グラフ用
 gem 'chart-js-rails', '~> 0.1.4'
+# グラフにデータを渡す
 gem 'gon', '~> 6.2.0'

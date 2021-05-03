@@ -10,7 +10,7 @@
     <%= form.fields_for :valiablecost_values do |f| %>
       <tr>
         <td><%= f.date_field :year_month %></td>
-        <td><%= f.collection_select :valiable_id, @valiablecosts, :id, :name, include_blank: "選択して下さい" %></td>
+        <td><%= f.collection_select :valiablecost_id, @valiablecosts, :id, :name, include_blank: "選択して下さい" %></td>
         <td><%= f.text_field :value %>円</td>
         <td><%= f.text_field :description %></td>
       </tr>

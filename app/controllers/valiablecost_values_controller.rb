@@ -1,21 +1,21 @@
 class ValiablecostValuesController < ApplicationController
   def index
-  	@variablecosts = Variablecost.all
-		@variablecost_values = VariablecostValue.order("year_month asc")
+  	@variablecosts = Valiablecost.all
+		@variablecost_values = ValiablecostValue.order("year_month asc")
   end
 
 	def show
-		@variablecost_value = VariablecostValue.find(params[:id])
+		@variablecost_value = ValiablecostValue.find(params[:id])
 	end
 
 	def new
 		@form = Form::ValiablecostValueCollection.new
-		@valiables = Valiablecost.new
+		@valiablecosts = Valiablecost.all
 	end
 
 	def edit
-		@variablecost_value = VariablecostValue.find(params[:id])
-		@variablecost = Variablecost.find(@variablecost_value.variablecost_id)
+		@variablecost_value = ValiablecostValue.find(params[:id])
+		@variablecost = Valiablecost.find(@variablecost_value.variablecost_id)
 	end
 
 	def create

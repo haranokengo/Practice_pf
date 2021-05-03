@@ -10,8 +10,8 @@ window.draw_graph = ->
     variable_bdColors = new Array(barNum)
     result_bgColors = new Array(barNum)
     result_bdColors = new Array(barNum)
- 
- 
+
+
     for i in [0...gon.data_incomes.length]
         labels[i] = i+1 +'月'
         incom_bgColors[i] = 'rgba(135, 201, 164, 0.2)'
@@ -22,8 +22,8 @@ window.draw_graph = ->
         variable_bdColors[i] = 'rgba(233, 77, 55, 1)'
         result_bgColors[i] = 'rgba(0, 134, 186, 0.2)'
         result_bdColors[i] = 'rgba(0, 134, 186, 1)'
- 
- 
+
+
     myChart = new Chart(ctx, {
         type: 'bar',
         data: {

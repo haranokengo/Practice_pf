@@ -1,4 +1,4 @@
-class Form::ValiablecostValuesCollection < Form::Base
+class Form::ValiablecostValueCollection < Form::Base
   FORM_COUNT = 10 #ここで、作成したい登録フォームの数を指定
   # valiablecost_valuesが他で使われないようにしている。
   # ここでは、initialize,valiablecost_values_attributes,saveのみ
